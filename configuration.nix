@@ -59,6 +59,10 @@
     extraArgs = ["--avoid" "^(Hyprland|waybar)$"];
   };
 
+  # não travar o desligamento esperando processo (steam, discord...)
+  systemd.settings.Manager.DefaultTimeoutStopSec = "10s";
+  systemd.user.settings.Manager.DefaultTimeoutStopSec = "10s";
+
   # Enable Virtual Machines
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
